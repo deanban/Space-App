@@ -1,0 +1,2 @@
+class Curiosity < ApplicationRecord
+end

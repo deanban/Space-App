@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  photo_id: 1
+  cam_name: MyString
+  img_src: MyString
+  earth_date: 2017-09-28 09:43:35
+
+two:
+  photo_id: 1
+  cam_name: MyString
+  img_src: MyString
+  earth_date: 2017-09-28 09:43:35
