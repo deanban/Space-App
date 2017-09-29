@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
 
   skip_before_action :authorized, only: [:create]
-  # { username: "johann", password: "learnlovecode"}
   # I AM CREATING A User
-  # THERE SIGNUP
   def create
     user = User.new(username: params[:username], password: params[:password])
     if user.save
@@ -14,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+  	@user = User.find_by(id: params[:id])
     if @user
       render json: { user: @user, curiosities: @user.curiosities}
     else
