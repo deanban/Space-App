@@ -1,5 +1,5 @@
 
-class CuriosityController < ApplicationController
+class CuriositiesController < ApplicationController
 
 
 	def index

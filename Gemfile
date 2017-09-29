@@ -26,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 gem 'rest-client'
 gem 'json'
+gem 'jwt'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
