@@ -9,7 +9,7 @@
 require 'rest-client'
 require 'json'
 
-url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-9-28&api_key=NeEtcC0syMD5oQJF0bt49STyJamoSj4E5sv0Axui'
+url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-1&api_key=NeEtcC0syMD5oQJF0bt49STyJamoSj4E5sv0Axui'
 response = JSON.parse(RestClient.get(url))
 
 def clean_data(photo)

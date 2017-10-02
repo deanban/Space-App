@@ -8,6 +8,8 @@ class AuthController < ApplicationController
       		#YOU ARE WHO YOU SAY YOU ARE
       		token = encode_token({ user_id: user.id})
       		render json: { user: user, jwt: token}
+      	else
+      		render json: {}
     	end
 
   	end

@@ -21,5 +21,18 @@ class UsersController < ApplicationController
 
   end
 
+  def addLike
+    @user = User.find_by(id: params[:id])
+    @curiosity = Curiosity.find_by(id: params[:id])
+
+    if @user && @curiosity 
+      @user.curiosities.push(@curiosity)
+      render json: { user: @user }
+    else 
+      render json: { message: "Error"}
+    end
+  end
+
+
 
 end

@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :users
   post '/login', to: 'auth#create'
   get '/welcome', to: 'application#welcome'
+  post '/users/:id/likes/', to: 'users#addLike'
+
+
+
 end
