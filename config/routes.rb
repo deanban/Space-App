@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   resources :curiosities
   resources :users
+
   post '/login', to: 'auth#create'
   get '/welcome', to: 'application#welcome'
-  post '/users/:id/likes/', to: 'users#addLike'
-
+  post '/users/likes', to: 'users#addLike'
+  post '/users/nolikes', to: 'users#removeLike'
 
 
 end

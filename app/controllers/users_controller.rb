@@ -12,9 +12,9 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find_by(id: params[:id])
+  	# @user = User.find_by(id: params[:id])
     if @user
-      render json: { user: @user, curiosities: @user.curiosities}
+      render json: { curiosities: @user.curiosities}
     else
       render json: { message: "Error"}
     end
@@ -22,8 +22,10 @@ class UsersController < ApplicationController
   end
 
   def addLike
-    @user = User.find_by(id: params[:id])
-    @curiosity = Curiosity.find_by(id: params[:id])
+
+    # @user = User.find_by(id: params[:id])
+    @curiosity = Curiosity.find_by(id: params[:picture_id])
+
 
     if @user && @curiosity 
       @user.curiosities.push(@curiosity)
@@ -31,6 +33,13 @@ class UsersController < ApplicationController
     else 
       render json: { message: "Error"}
     end
+  end
+
+  def removeLike
+
+    @curiosity = Curiosity.find_by(id: params[:picture_id])
+    @user.curiosities.delete(@curiosity)
+
   end
 
 

@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::API
 
-	before_action :authorized, except: [:welcome, :index, :show]
+	before_action :authorized, except: [:welcome, :index]
 
   	def encode_token(payload)
     	token = JWT.encode(payload, "flobble")
@@ -14,9 +14,9 @@ class ApplicationController < ActionController::API
 
   	def decoded_token
     	if auth_header
-      		token = auth_header.split(" ")[1]
+      		# token = auth_header.split(" ")[1]
       		begin
-        		JWT.decode(token, "flobble", true, {algorithm: 'HS256'})
+        		JWT.decode(auth_header, "flobble", true, {algorithm: 'HS256'})
       		rescue JWT::DecodeError
         		[{}]
       		end
