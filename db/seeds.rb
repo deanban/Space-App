@@ -15,7 +15,7 @@ luke = User.create({username: "luke", password: "a"})
 
 
 
-url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-2&api_key=NeEtcC0syMD5oQJF0bt49STyJamoSj4E5sv0Axui'
+url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-10-1&api_key=NeEtcC0syMD5oQJF0bt49STyJamoSj4E5sv0Axui'
 response = JSON.parse(RestClient.get(url))
 
 def clean_data(photo)
@@ -34,9 +34,9 @@ response["photos"].each do |photo|
 	Curiosity.create(newData)
 end
 
-url2 = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=NeEtcC0syMD5oQJF0bt49STyJamoSj4E5sv0Axui"
+url2 = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2017-09-27&end_date=2017-10-02&api_key=NeEtcC0syMD5oQJF0bt49STyJamoSj4E5sv0Axui"
 asteroid_data = JSON.parse(RestClient.get(url2))
-arr = asteroid_data["near_earth_objects"]["2015-09-08"]
+arr = asteroid_data["near_earth_objects"]
 
 def clean_asteroid_data(data)
 
@@ -54,9 +54,11 @@ def clean_asteroid_data(data)
 	obj
 end
 
-arr.each do |asteroid|
-	newData = clean_asteroid_data(asteroid)
-	Asteroid.create(newData)
+arr.each do |key, val|
+	arr[key].each do |asteroid|
+		newData = clean_asteroid_data(asteroid)
+		Asteroid.create(newData)
+	end
 end
 
 luke.curiosities.push(Curiosity.first)
