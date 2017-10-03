@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929140513) do
+ActiveRecord::Schema.define(version: 20171003195839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "asteroids", force: :cascade do |t|
+    t.string "name"
+    t.string "nasa_jpl_url"
+    t.float "estimated_diameter_min"
+    t.float "estimated_diameter_max"
+    t.boolean "hazardous"
+    t.string "close_approach_date"
+    t.float "relative_velocity"
+    t.float "miss_distance"
+  end
 
   create_table "curiosities", force: :cascade do |t|
     t.integer "photo_id"

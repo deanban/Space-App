@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get '/welcome', to: 'application#welcome'
   post '/users/likes', to: 'users#addLike'
   post '/users/nolikes', to: 'users#removeLike'
-
+  get '/asteroids', to: 'asteroids#index'
 
 end
