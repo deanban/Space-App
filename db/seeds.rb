@@ -55,7 +55,7 @@ def clean_asteroid_data(data)
 end
 
 arr.each do |key, val|
-	arr[key].each do |asteroid|
+	val.each do |asteroid|
 		newData = clean_asteroid_data(asteroid)
 		Asteroid.create(newData)
 	end
